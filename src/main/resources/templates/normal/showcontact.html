@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="normal/Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body">
+				<h1 class="text-center">Your Contacts</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="c : ${contacts}">
+							<th scope="row" th:text="${c.cid}"></th>
+							<td th:text="${c.name}" ></td>
+							<td th:text="${c.email}"></td>
+							<td th:text="${c.Mobileno}"></td>
+							<td>
+							<button class="btn btn-danger btn-small">Delete</button>
+							<button class="btn btn-primary btn-small">update</button>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+				<!-- pagination -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li th:if="${currentpage !=0}" class="page-item"><a class="page-link" th:href="@{'/user/showcontact/'+${currentpage-1}}">Previous</a></li>
+    <li th:classappend="${currentpage==i-1?'active':''}"
+    class="page-item" th:each="i : ${#numbers.sequence(1,totalpage)}"><a class="page-link" th:href="@{'/user/showcontact/'+${i-1}}">
+    <span th:text="${i}"></span></a></li>
+    <li th:if="${currentpage+1 !=totalpage}" class="page-item"><a class="page-link" th:href="@{'/user/showcontact/'+${currentpage+1}}">Next</a></li>
+  </ul>
+</nav>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>

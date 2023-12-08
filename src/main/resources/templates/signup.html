@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="mycard mt-3">
+						<!--error   -->
+						<div th:if="${session.message != null}"
+							th:classappend="${session.message.type}" class="alert"
+							role="alert">
+							<p th:text="${session.message.content}"></p>
+							<th:block th:text="${@sessionHelper.removemsgfromsession()}"></th:block>
+
+
+
+						</div>
+
+						<div class="container text-center">
+							<img style="width: 80px" th:src="@{/img/document.png}" alt="" />
+						</div>
+						<h1 class="text-center">Register Here</h1>
+						<form th:action="@{/register}" method=post th:object="${user}">
+							<!-- name -->
+
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label" >Your Name</label>
+								 <input type="text" class="form-control" name="name">
+
+								 <div style="color:red;" th:each="e : ${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+							<!-- email -->
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Enter
+									Your Email</label> <input type="email" class="form-control"
+									name="email" id="exampleInputEmail1"
+									aria-describedby="emailHelp" th:value="${user.email}">
+
+							</div>
+
+							<!-- password -->
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Enter
+									Your Password</label> <input type="password" class="form-control"
+									name="password" id="exampleInputEmail1"
+									aria-describedby="emailHelp">
+
+							</div>
+							<!-- about  -->
+
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Enter
+									about yourself</label>
+								<textarea class="form-control" name="about"
+									id="exampleInputEmail1" aria-describedby="emailHelp"> </textarea>
+
+							</div>
+
+							<!-- terms and condition -->
+							<div class="mb-3 form-check">
+								<input type="checkbox" name="agrement" id="agreement"
+									class="form-check-input"> <label
+									for="exampleInputEmail1" class="form-label">Accept
+									terms and condition </label>
+
+							</div>
+
+							<div class="container text-center">
+								<button type="submit" class="btn btn-primary btn-block">
+									Submit</button>
+								<button type="reset" class="btn btn-warning btn-block">
+									Reset</button>
+							</div>
+
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+</body>
+</html>

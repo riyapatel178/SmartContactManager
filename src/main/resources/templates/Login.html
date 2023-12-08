@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="mycard mt-3">
+						<form class="form-signin" method="post" th:action="@{/dologin}">
+							<h2 class="form-signin-heading">Please Login Here..!!</h2>
+							<div th:if="${param.error}" class="alert alert-danger"> Invalid Username And Password.
+							</div>
+							<div th:if="${param.logout}" class="alert alert-success"> You have logged out successfully.
+							</div>
+							<p>
+								<label for="username" class="sr-only">Username</label> <input
+									type="text" id="username" name="username" class="form-control"
+									placeholder="Username" required autofocus>
+							</p>
+							<p>
+								<label for="password" class="sr-only">Password</label> <input
+									type="password" id="password" name="password"
+									class="form-control" placeholder="Password" required>
+							</p>
+							<div id="register-link" class="text-right">
+							<a href="/signup" class="text-info">Register Here</a>
+							</div>
+							<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+								in</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

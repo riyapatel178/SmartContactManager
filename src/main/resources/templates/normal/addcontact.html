@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org"
+	th:replace="normal/Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3">
+			<div class="card-body">
+				<h1 class="text-center">Add Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<form th:action="@{/user/processcontact}" class="mt-2"
+								th:object="${contact}" enctype="multipart/form-data"
+								method="post">
+
+
+								<!-- name -->
+								<div class="input-group mb-3">
+									<i class="input-group-text fa fa-plus mr-3" ></i> <input
+										type="text" class="form-control" placeholder="enter  name here"
+										aria-label="Username" aria-describedby="basic-addon1" name="name">
+								</div>
+
+								<!-- nickname -->
+								<div class="input-group mb-3">
+									<i class="input-group-text fas fa-user-alt" ></i> <input
+										type="text" class="form-control" placeholder="enter nick name here"
+										 aria-describedby="basic-addon1" name="nickname">
+								</div>
+								<!-- email -->
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">@</span> <input
+										type="email" class="form-control" placeholder="enter email here"
+										 aria-describedby="basic-addon1" name="email">
+								</div>
+								<!-- Mobileno -->
+								<div class="input-group mb-3">
+									<i class="input-group-text fa fa-phone" ></i> <input
+										type="text" class="form-control" placeholder="enter Phone number here"
+										 aria-describedby="basic-addon1" name="Mobileno">
+								</div>
+								<!-- work -->
+								<div class="input-group mb-3">
+									<i class="input-group-text fa fa-briefcase" ></i> <input
+										type="text" class="form-control" placeholder="enter profession here"
+										 aria-describedby="basic-addon1" name="work">
+								</div>
+								<!-- description -->
+								<div class="input-group mb-3">
+								<textarea name="description" placeholder="enter description here"
+								 class="form-control" id="" cols="30" rows="10"></textarea>
+								</div>
+								<!--  imgurl-->
+								<div class="custom-file">
+								<input type="file" name="profileimg" />
+								</div>
+								<!--submit-->
+								<div class="container text-center">
+								<button type="submit" class="btn btn-primary btn-block">
+									Save Contact</button>
+									</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>

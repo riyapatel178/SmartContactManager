@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+body {
+	background: #87CEEB;
+}
+
+.bg-primary {
+	background: #708090;
+}
+
+.banner {
+	width: 100%;
+	height: 93vh;
+	background: Linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/home-contact.jpg);
+	color: white;
+	/* Center and scale the image nicely */
+	
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.mycard{
+	padding:20px;
+	background: #ffffff;
+	
+}
+.sidebar{
+	width:18%;
+	background: #ffffff;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	
+	
+	
+	
+}
+@media only screen and (max-width: 600px){
+	.sidebar{
+	display:none;
+	width:80% ;
+	background: #ffffff;
+	height: 100vh;
+	position: fixed;
+	padding-top: 45px;
+	}
+	.content{
+	
+	margin-left: 0%;
+	
+}
+	
+}
+.sidebar a{
+	width: 100%;
+	display: block;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: black;
+}
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+.sidebar .divider{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top : 10px;
+}
+
+
+.content{
+	
+	margin-left: 20%;
+	
+}
+.sidebar .close{
+	position: absolute;
+	top:0;
+	right: 35px;
+	font-size:36px;
+	cursor: pointer;
+	
+}
